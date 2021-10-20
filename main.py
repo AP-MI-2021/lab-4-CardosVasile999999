@@ -50,6 +50,30 @@ def test_get_all_numbers_in_open_interval():
     assert get_all_numbers_in_open_interval([1.4, 6, 7, 9], 5, 10) == [6, 7, 9]
 
 
+def get_all_elements_with_integer_part_being_a_divisor_of_fractional_part(lst):
+    '''
+    Functie ce are ca parametrii lista de float-uri si returneaza elementele care au partea intreaga divizor al partii fractionale
+    :param lst: lista de floaturi
+    :return: o lista cu elementele ce au partea intreaga divizor al partii fractionale
+    '''
+    result = []
+    for element in lst:
+        string_element = str(element)
+        decimale = string_element.split('.')[1]
+        intreg = string_element.split('.')[0]
+        fract = int(decimale)
+        it = int(intreg)
+        if fract % it == 0 and fract != 0:
+            result.append(element)
+    return result
+
+
+def test_get_all_elements_with_integer_part_being_a_divisor_of_fractional_part():
+    assert get_all_elements_with_integer_part_being_a_divisor_of_fractional_part([1.5, 2.6]) == [1.5, 2.6]
+    assert get_all_elements_with_integer_part_being_a_divisor_of_fractional_part([]) == []
+    assert get_all_elements_with_integer_part_being_a_divisor_of_fractional_part([1, 2.7, 3]) == []
+
+
 def main():
     lst = []
     while True:
@@ -66,12 +90,13 @@ def main():
             intreg = get_integers_part(lst)
             print(intreg)
         elif opt == '3':
-            stanga = float(input('Dati capatul din stanga al intervalului'))
-            dreapta = float(input('Dati capatul din dreapta al intervalului'))
+            stanga = float(input('Dati capatul din stanga al intervalului: '))
+            dreapta = float(input('Dati capatul din dreapta al intervalului: '))
             interval = get_all_numbers_in_open_interval(lst, stanga, dreapta)
             print(interval)
         elif opt == '4':
-            pass
+            divizorul = get_all_elements_with_integer_part_being_a_divisor_of_fractional_part(lst)
+            print(divizorul)
         elif opt == '5':
             pass
         elif opt == 'x':
@@ -83,4 +108,5 @@ def main():
 if __name__ == '__main__':
     test_get_integers_part()
     test_get_all_numbers_in_open_interval()
+    test_get_all_elements_with_integer_part_being_a_divisor_of_fractional_part()
     main()
