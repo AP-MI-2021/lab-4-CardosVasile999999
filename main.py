@@ -82,31 +82,39 @@ def get_characther_into_word(lst):
     '''
     result = []
     for element in lst:
-        aux = []
+        aux = ' '
         elementu = str(element)
         for j in elementu:
             if j == '-':
-                aux.append('minus')
+                minus = "minus"
+                aux = aux + minus
             elif j == '1':
-                aux.append('unu')
+                unu = 'unu'
+                aux = aux + unu
             elif j == '2':
-                aux.append('doi')
+                doi = 'doi'
+                aux = aux +doi
             elif j == '3':
-                aux.append('trei')
+                trei = 'trei'
+                aux = aux +trei
             elif j == '4':
-                aux.append('patru')
+                patru = 'patru'
+                aux = aux +patru
             elif j == '5':
-                aux.append('cinci')
+                cinci = 'cinci'
+                aux = aux +cinci
             elif j == '6':
-                aux.append('sase')
+                aux = aux + 'sase'
             elif j == '7':
-                aux.append('sapte')
+                sapte = 'sapte'
+                aux = aux +sapte
             elif j == '8':
-                aux.append('opt')
+                opt =  'opt'
+                aux = aux +opt
             elif j == '9':
-                aux.append('noua')
+                aux = aux +'noua'
             elif j == '.':
-                aux.append('virgula')
+                aux = aux +'virgula'
         result.append(aux)
     return result
 
