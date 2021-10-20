@@ -20,14 +20,34 @@ def get_integers_part(lst):
 
 
 def test_get_integers_part():
-    '''
-    functie test pentru get_integers_part(lst)
-    '''
     assert get_integers_part([-1, 32.56, 0, -0.5, 23]) == [-1, 32, 0, 0, 23]
     assert get_integers_part([1, 2, 3, 4, 5, 78, 89]) == [1, 2, 3, 4, 5, 78, 89]
     assert get_integers_part([]) == []
     assert get_integers_part([1.2, 4.65, 56.99, 67.8, 90.34, 12.32]) == [1, 4, 56, 67, 90, 12]
     assert get_integers_part([1.5, 3.4]) == [1, 3]
+
+
+def get_all_numbers_in_open_interval(lst, s, d):
+    '''
+    Functie care are ca paramtrii o lista si capetele intervalului si care returneaza toate numerele din interval
+    :param lst: lista de float-uri
+    :param s: capatul din stanga
+    :param d: capatul din dreapta
+    :return: toate elementele care fac parte din interval
+    '''
+    result = []
+    for element in lst:
+        if element > s and element < d:
+            result.append(element)
+    return result
+
+
+def test_get_all_numbers_in_open_interval():
+    assert get_all_numbers_in_open_interval([1, 2, 3, 4, 5], 2, 5) == [3, 4]
+    assert get_all_numbers_in_open_interval([], 12, 34) == []
+    assert get_all_numbers_in_open_interval([-1.4, -56, 34.5, 65, 23.54, 45.01], 700, 800) == []
+    assert get_all_numbers_in_open_interval([1.5, -3.3, 8, 9.8, 3.2], -4, 5) ==  [1.5, -3.3, 3.2]
+    assert get_all_numbers_in_open_interval([1.4, 6, 7, 9], 5, 10) == [6, 7, 9]
 
 
 def main():
@@ -46,7 +66,10 @@ def main():
             intreg = get_integers_part(lst)
             print(intreg)
         elif opt == '3':
-            pass
+            stanga = float(input('Dati capatul din stanga al intervalului'))
+            dreapta = float(input('Dati capatul din dreapta al intervalului'))
+            interval = get_all_numbers_in_open_interval(lst, stanga, dreapta)
+            print(interval)
         elif opt == '4':
             pass
         elif opt == '5':
@@ -59,4 +82,5 @@ def main():
 
 if __name__ == '__main__':
     test_get_integers_part()
+    test_get_all_numbers_in_open_interval()
     main()
