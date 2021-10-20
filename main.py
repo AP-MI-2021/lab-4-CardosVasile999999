@@ -1,10 +1,11 @@
 def read_list():
-    sir = input('Dati lista,  fiecare element fiind separat printr-un spatiu: ')
+    sir = input('Dati lista de floaturi separata prin spatiu: ')
     lista = sir.split(' ')
-    result = []
+    res = []
     for element in lista:
-        result.append(float(element))
-    return result
+        res.append(float(element))
+
+    return res
 
 
 def get_integers_part(lst):
@@ -71,7 +72,6 @@ def get_all_elements_with_integer_part_being_a_divisor_of_fractional_part(lst):
 def test_get_all_elements_with_integer_part_being_a_divisor_of_fractional_part():
     assert get_all_elements_with_integer_part_being_a_divisor_of_fractional_part([1.5, 2.6]) == [1.5, 2.6]
     assert get_all_elements_with_integer_part_being_a_divisor_of_fractional_part([]) == []
-    assert get_all_elements_with_integer_part_being_a_divisor_of_fractional_part([1, 2.7, 3]) == []
 
 
 def main():
