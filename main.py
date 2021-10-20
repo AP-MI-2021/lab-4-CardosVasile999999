@@ -74,6 +74,43 @@ def test_get_all_elements_with_integer_part_being_a_divisor_of_fractional_part()
     assert get_all_elements_with_integer_part_being_a_divisor_of_fractional_part([]) == []
 
 
+def get_characther_into_word(lst):
+    '''
+    functie care transforma fiecare caracter intrun cuvant
+    :param lst: lisat de flaoturi
+    :return: lista de caractere
+    '''
+    result = []
+    for element in lst:
+        aux = []
+        elementu = str(element)
+        for j in elementu:
+            if j == '-':
+                aux.append('minus')
+            elif j == '1':
+                aux.append('unu')
+            elif j == '2':
+                aux.append('doi')
+            elif j == '3':
+                aux.append('trei')
+            elif j == '4':
+                aux.append('patru')
+            elif j == '5':
+                aux.append('cinci')
+            elif j == '6':
+                aux.append('sase')
+            elif j == '7':
+                aux.append('sapte')
+            elif j == '8':
+                aux.append('opt')
+            elif j == '9':
+                aux.append('noua')
+            elif j == '.':
+                aux.append('virgula')
+        result.append(aux)
+    return result
+
+
 def main():
     lst = []
     while True:
@@ -98,7 +135,8 @@ def main():
             divizorul = get_all_elements_with_integer_part_being_a_divisor_of_fractional_part(lst)
             print(divizorul)
         elif opt == '5':
-            pass
+            cuvant = get_characther_into_word(lst)
+            print(cuvant)
         elif opt == 'x':
             break
         else:
