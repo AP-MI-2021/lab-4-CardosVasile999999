@@ -1,5 +1,5 @@
 def read_list():
-    sir = input('Dati sirul fiecare element fiind separat printr-un spatiu: ')
+    sir = input('Dati lista,  fiecare element fiind separat printr-un spatiu: ')
     lista = sir.split(' ')
     result = []
     for element in lista:
@@ -23,7 +23,11 @@ def test_get_integers_part():
     '''
     functie test pentru get_integers_part(lst)
     '''
-    pass
+    assert get_integers_part([-1, 32.56, 0, -0.5, 23]) == [-1, 32, 0, 0, 23]
+    assert get_integers_part([1, 2, 3, 4, 5, 78, 89]) == [1, 2, 3, 4, 5, 78, 89]
+    assert get_integers_part([]) == []
+    assert get_integers_part([1.2, 4.65, 56.99, 67.8, 90.34, 12.32]) == [1, 4, 56, 67, 90, 12]
+    assert get_integers_part([1.5, 3.4]) == [1, 3]
 
 
 def main():
@@ -54,4 +58,5 @@ def main():
 
 
 if __name__ == '__main__':
+    test_get_integers_part()
     main()
